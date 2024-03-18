@@ -9,6 +9,7 @@ add_subdirectory(wechat_qrcode)
 
 # include directories
 include_directories(
+	include
 	wechat_qrcode/include
 )
 
@@ -16,3 +17,7 @@ include_directories(
 add_definitions(-DROOT_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/\")
 add_executable(main main.cpp)
 target_link_libraries(main ${OpenCV_LIBS} wechat_qrcode)
+
+add_definitions(-DROOT_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/\")
+add_executable(video_detect video_detect.cpp)
+target_link_libraries(video_detect ${OpenCV_LIBS} wechat_qrcode)
